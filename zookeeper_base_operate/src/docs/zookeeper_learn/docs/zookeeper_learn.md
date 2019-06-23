@@ -113,6 +113,7 @@ ZooKeeper有多种记录时间的形式，其中包含以下几个主要属性�
 ***
 
 在ZooKeeper中有9个基本操作
+
 | 操作 | 描述 |
 | ----- | ----------------------- |
 |   create   | 创建Znode(父节点必须存在) |
@@ -122,6 +123,8 @@ ZooKeeper有多种记录时间的形式，其中包含以下几个主要属性�
 |   getChildren   | 获取子节点列表 |
 |   getData/setData   | 获取和设置Znode节点数据 |
 |   sync   | 是客户端的Znode视图和Zookeeper同步 |
+
+
 
 更新ZooKeeper操作是有限制的。delete或setData必须明确要更新的Znode的版本号，我们可以调用exists找到。如果版本号不匹配，更新将会失败。
 
