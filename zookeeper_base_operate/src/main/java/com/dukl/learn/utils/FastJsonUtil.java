@@ -1,4 +1,4 @@
-package com.dukl.utils;
+package com.dukl.learn.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

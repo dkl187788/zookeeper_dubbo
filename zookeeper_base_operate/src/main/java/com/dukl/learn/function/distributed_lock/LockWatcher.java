@@ -1,6 +1,6 @@
-package com.dukl.zookeeper.distributed_lock;
+package com.dukl.learn.function.distributed_lock;
 
-import com.dukl.utils.FastJsonUtil;
+import com.dukl.learn.utils.FastJsonUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.zookeeper.CreateMode;

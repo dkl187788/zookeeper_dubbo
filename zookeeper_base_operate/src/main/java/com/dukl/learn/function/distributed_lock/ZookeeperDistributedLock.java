@@ -1,4 +1,4 @@
-package com.dukl.zookeeper.distributed_lock;
+package com.dukl.learn.function.distributed_lock;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
