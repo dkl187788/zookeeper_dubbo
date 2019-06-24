@@ -1018,6 +1018,23 @@ ___
 ##### (3) 应用举例
 阿里开源的分布式服务框架Dubbo中使用ZooKeeper来作为其命名服务，维护全局的服务地址列表。在Dubbo实现中： 服务提供者在启动的时候，向ZK上的指定节点/dubbo/${serviceName}/providers目录下写入自己的URL地址，这个操作就完成了服务的发布。 服务消费者启动的时候，订阅/dubbo/${serviceName}/providers目录下的提供者URL地址， 并向/dubbo/${serviceName} /consumers目录下写入自己的URL地址。 注意，所有向ZK上注册的地址都是临时节点，这样就能够保证服务提供者和消费者能够自动感应资源的变化。 另外，Dubbo还有针对服务粒度的监控，方法是订阅/dubbo/${serviceName}目录下所有提供者和消费者的信息。
 
+```
+ls /dubbo/com.dukl.learn.service.RepertoryService/routers
+
+dubbo://169.254.108.7:20890/com.dukl.learn.service.RepertoryService?anyhost=true&application=provider&dubbo=2.6.0&generic=false&interface=com.dukl.learn.service.RepertoryService&methods=reduceRepertory&pid=5220&revision=1.0-SNAPSHOT&side=provider&timestamp=1561345483937&version=1.0.0
+
+//启动多个服务提供者：
+dubbo://169.254.108.7:20880/com.dukl.learn.service.RepertoryService?anyhost=true&application=provider&dubbo=2.6.0&generic=false&interface=com.dukl.learn.service.RepertoryService&methods=reduceRepertory&pid=10276&revision=1.0-SNAPSHOT&side=provider&timestamp=1561346028593&version=1.0.0, dubbo://169.254.108.7:20890/com.dukl.learn.service.RepertoryService?anyhost=true&application=provider&dubbo=2.6.0&generic=false&interface=com.dukl.learn.service.RepertoryService&methods=reduceRepertory&pid=5220&revision=1.0-SNAPSHOT&side=provider&timestamp=1561345483937&version=1.0.0
+```
+
+```
+ls /dubbo/com.dukl.learn.service.RepertoryService/consumers
+consumer://169.254.108.7/com.dukl.learn.service.RepertoryService?application=consumer&category=consumers&check=false&dubbo=2.6.0&interface=com.dukl.learn.service.RepertoryService&lazy=true&methods=reduceRepertory&pid=9748&revision=1.0-SNAPSHOT&side=consumer&timestamp=1561345796616&version=1.0.0
+```
+
+
+
+
 ### **1.3分布通知/协调（Distribution of notification/coordination）**
 ***
 ___
