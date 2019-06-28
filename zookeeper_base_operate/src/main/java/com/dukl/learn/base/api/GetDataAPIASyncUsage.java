@@ -18,18 +18,22 @@ public class GetDataAPIASyncUsage implements Watcher {
 
 	public static void main(String[] args) throws Exception {
 		String path = "/zk-book";
-		zk = new ZooKeeper("127.0.0.1:2181", 5000, 
+		zk = new ZooKeeper("127.0.0.1:2181", 180000,
 				new GetDataAPIASyncUsage());
-		connectedSemaphore.await();
-
+		//connectedSemaphore.await();
+	/*	Stat stat = null;
+        if ((stat = zk.exists(path,false)) != null){
+        	zk.delete(path,-1);
+		}*/
 		zk.create(path, "123".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+
 		System.out.println("success create znode: " + path);
 		
-		zk.getData(path, true, new IDataCallback(), null);
+	/*	zk.getData(path, true, new IDataCallback(), null);
 
 		zk.setData(path, "123".getBytes(), -1);
 
-		Thread.sleep(Integer.MAX_VALUE);
+		Thread.sleep(Integer.MAX_VALUE);*/
 	}
 
 	public void process(WatchedEvent event) {
