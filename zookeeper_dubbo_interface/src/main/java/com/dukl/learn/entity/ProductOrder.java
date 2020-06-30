@@ -14,4 +14,5 @@ public class ProductOrder {
     private long orderTotalMoney;
     private String orderId;
     private long price;
+    private Integer orderStatus;    
 }
