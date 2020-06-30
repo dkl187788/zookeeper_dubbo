@@ -5,4 +5,6 @@ package com.dukl.learn.service;
  */
 public interface DeliverService {
     boolean deliverUserSaleProduct(String orderId,String receiveAddressId);
+    
+    boolean queryDeliverStatus(String orderId);
 }

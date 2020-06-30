@@ -18,4 +18,11 @@ public class DeliverServiceImpl implements DeliverService {
         logger.info("根据订单号及收获人地址准备快递单发货");
         return false;
     }
+
+
+	@Override
+	public boolean queryDeliverStatus(String orderId) {
+		// TODO 自动生成的方法存根
+		return false;
+	}
 }
